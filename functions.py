@@ -8,13 +8,35 @@ possibleChoices = (
     "s",
 )
 
+playerScore = 0
+computerScore = 0
+
+
+def addPointPlayer():
+    global playerScore
+    playerScore = playerScore + 1
+
+
+def addPointComputer():
+    global computerScore
+    computerScore = computerScore + 1
+
+
+def scores():
+    print("Player's score: " + str(playerScore))
+    print("Computer's score: " + str(computerScore))
+
 
 def playerLoss():
+    addPointComputer()
     print("You lost! One point to the computer!")
+    scores()
 
 
 def playerWin():
+    addPointPlayer()
     print("You won! One point to you!")
+    scores()
 
 
 def tied():
@@ -42,7 +64,6 @@ def computerChoice():
 
 
 def playRps():
-
     global quitGame
     quitGame = ""
 
