@@ -1,4 +1,5 @@
-import random  # Allows randomizing things such as lists and strings
+# Main file
+
 import functions  # Imports the functions.py file
 
 # Asks the player if they would like to play rps. If yes, the program will continue onto the next loop.
