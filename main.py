@@ -2,21 +2,20 @@
 
 import functions  # Imports the functions.py file
 
-possibleChoices = (
-    'r',
-    'p',
-    's',
-)
 
 # Asks the player if they would like to play rps. If yes, the program will continue onto the next loop.
 while True:
-    playRps = str(input('Would you like to play "Rock, Paper, Scissors"? (Y/n): '))
+    playGame = str(input('Would you like to play "Rock, Paper, Scissors"? (Y/n): '))
 
-    if playRps == "y":
+    if playGame == "y":
         while True:
-            functions.playGame()
+            functions.playerChoice()
+            functions.computerChoice()
+            functions.playRps()
+            if functions.quitGame == True:
+                break
 
-    elif playRps == "n":
+    elif playGame == "n":
         print("Terminating program...")
         quit()
 
