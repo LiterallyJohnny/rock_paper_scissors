@@ -66,8 +66,8 @@ def computerChoice():
 
 
 def playRps():
-    game = "".join([playerAction, computerAction])
     global quitGame
+    game = "".join([playerAction, computerAction])
 
     outcomes = {
         "rr": tied,
