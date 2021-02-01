@@ -2,48 +2,50 @@
 
 import random  # Allows randomizing things such as lists and strings
 
+# List of valid choices when the player is asked for their choice
 possibleChoices = (
-    "r",
-    "p",
-    "s",
+    "r",  # Rock
+    "p",  # Paper
+    "s",  # Scissors
 )
 
+# The player's and the computer's starting scores
 playerScore = 0
 computerScore = 0
 
 
-def addPointPlayer():
+def addPointPlayer():  # Adds a point for the player
     global playerScore
     playerScore = playerScore + 1
 
 
-def addPointComputer():
+def addPointComputer():  # Adds a point for the computer
     global computerScore
     computerScore = computerScore + 1
 
 
-def scores():
+def scores():  # Retreives the scores and prints them
     print("Player's score: " + str(playerScore))
     print("Computer's score: " + str(computerScore))
 
 
-def playerLoss():
+def playerLoss():  # Response if the player loses
     addPointComputer()
     print("You lost! One point to the computer!")
     scores()
 
 
-def playerWin():
+def playerWin():  # Response if the player wins
     addPointPlayer()
     print("You won! One point to you!")
     scores()
 
 
-def tied():
+def tied():  # Response if the player and the computer ties
     print("Tied! No points awarded.")
 
 
-def playerChoice():
+def playerChoice():  # Asks the player for their choice
     global playerAction
 
     playerAction = input(
@@ -59,14 +61,13 @@ def playerChoice():
     )
 
 
-def computerChoice():
+def computerChoice():  # Gives the computer a random choice from the possibleChoices list
     global computerAction
     computerAction = random.choice(possibleChoices)
     computerAction = computerAction
 
 
-def playRps():
-    global quitGame
+def playRps():  # Compares the choices and determines who won the game
     game = "".join([playerAction, computerAction])
 
     outcomes = {
@@ -82,7 +83,8 @@ def playRps():
     }
 
     if playerAction == "q":
-        quitGame = True  # TODO: Figure out why this isn't working in the main.py file
+        return False
+
     else:
         action = outcomes.get(game)
         if action:
