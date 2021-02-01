@@ -84,7 +84,6 @@ def playRps():  # Compares the choices and determines who won the game
 
     if playerAction == "q":
         return False
-
     else:
         action = outcomes.get(game)
         if action:
