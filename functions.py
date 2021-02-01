@@ -45,6 +45,7 @@ def tied():
 
 def playerChoice():
     global playerAction
+
     playerAction = input(
         """
     Rock, paper, or scissors?
@@ -61,31 +62,30 @@ def playerChoice():
 def computerChoice():
     global computerAction
     computerAction = random.choice(possibleChoices)
+    computerAction = computerAction
 
 
 def playRps():
+    game = "".join([playerAction, computerAction])
     global quitGame
-    quitGame = ""
 
-    if playerAction == "r" and computerAction == "r":
-        tied()
-    elif playerAction == "r" and computerAction == "p":
-        playerLoss()
-    elif playerAction == "r" and computerAction == "s":
-        playerWin()
-    elif playerAction == "p" and computerAction == "r":
-        playerWin()
-    elif playerAction == "p" and computerAction == "p":
-        tied()
-    elif playerAction == "p" and computerAction == "s":
-        playerLoss()
-    elif playerAction == "s" and computerAction == "r":
-        playerLoss()
-    elif playerAction == "s" and computerAction == "p":
-        playerWin()
-    elif playerAction == "s" and computerAction == "s":
-        tied()
-    elif playerAction == "q":
-        quitGame = True
+    outcomes = {
+        "rr": tied,
+        "pp": tied,
+        "ss": tied,
+        "rp": playerLoss,
+        "ps": playerLoss,
+        "sr": playerLoss,
+        "rs": playerWin,
+        "pr": playerWin,
+        "sp": playerWin,
+    }
+
+    if playerAction == "q":
+        quitGame = True  # TODO: Figure out why this isn't working in the main.py file
     else:
-        print("Unknown input.")
+        action = outcomes.get(game)
+        if action:
+            action()
+        else:
+            print("Invalid input!")
