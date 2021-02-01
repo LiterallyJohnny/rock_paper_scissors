@@ -14,8 +14,8 @@ while True:
         while True:
             functions.playerChoice()
             functions.computerChoice()
-            functions.playRps()
-            if not functions.playRps():
+            result = functions.playRps()
+            if result:
                 break
 
     elif playGame == "n":

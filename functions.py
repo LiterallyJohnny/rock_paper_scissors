@@ -83,7 +83,7 @@ def playRps():  # Compares the choices and determines who won the game
     }
 
     if playerAction == "q":
-        return False
+        return True
     else:
         action = outcomes.get(game)
         if action:
